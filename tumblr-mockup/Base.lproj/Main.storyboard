@@ -74,14 +74,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.19607843137254902" green="0.25882352941176467" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" id="7GI-aY-yMC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </view>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="explore_popup" id="vIx-KL-PPU">
                                 <rect key="frame" x="0.0" y="457" width="185" height="77"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" id="7GI-aY-yMC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
                         </subviews>
                     </view>
                     <connections>
@@ -100,38 +100,63 @@
         <!--Login View Controller-->
         <scene sceneID="3Xy-1Z-XfQ">
             <objects>
-                <viewController id="ZH7-pJ-3bq" customClass="LoginViewController" customModule="tumblr_mockup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="ZH7-pJ-3bq" customClass="LoginViewController" customModule="tumblr_mockup" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7QO-2m-VNE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="login_form" id="bbA-bw-F9J">
-                                <rect key="frame" x="10" y="157" width="300" height="132"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lqt-E8-DdU">
-                                <rect key="frame" x="16" y="249" width="144" height="40"/>
+                            <view contentMode="scaleToFill" id="W2j-Nj-QJ1">
+                                <rect key="frame" x="-10" y="137" width="340" height="172"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPressCancelButton:" destination="ZH7-pJ-3bq" eventType="touchUpInside" id="zep-Td-UbL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SZF-F1-eGH">
-                                <rect key="frame" x="161" y="249" width="143" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPressLogin:" destination="ZH7-pJ-3bq" eventType="touchUpInside" id="DWB-0C-nHB"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="login_form" id="bbA-bw-F9J">
+                                        <rect key="frame" x="20" y="20" width="300" height="132"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lqt-E8-DdU">
+                                        <rect key="frame" x="26" y="112" width="144" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressCancelButton:" destination="ZH7-pJ-3bq" eventType="touchUpInside" id="zep-Td-UbL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SZF-F1-eGH">
+                                        <rect key="frame" x="171" y="112" width="143" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressLogin:" destination="ZH7-pJ-3bq" eventType="touchUpInside" id="DWB-0C-nHB"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" id="LzP-JX-9Jd">
+                                        <rect key="frame" x="33" y="30" width="276" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" id="9Kl-w6-hFC">
+                                        <rect key="frame" x="33" y="72" width="276" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="LzP-JX-9Jd" id="VoY-oq-YIG"/>
+                        <outlet property="loginForm" destination="W2j-Nj-QJ1" id="8Gi-RJ-G1k"/>
+                        <outlet property="passwordTextField" destination="9Kl-w6-hFC" id="pJx-I4-vw5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GDo-Zg-ukz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -187,16 +212,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="loading-1" id="9XS-R9-G8G">
-                                <rect key="frame" x="130" y="263" width="61" height="19"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.24313727021217346" green="0.34117648005485535" blue="0.48627454042434692" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="0qU-Ry-Bx2" id="GS8-Zx-Wsr"/>
-                        <outlet property="loaderImage" destination="9XS-R9-G8G" id="cex-cd-sB9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="93P-PN-WxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -207,7 +227,7 @@
         <scene sceneID="Y2g-nM-twN">
             <objects>
                 <viewController storyboardIdentifier="ComposeViewController" id="i2c-WF-lUk" customClass="ComposeViewController" customModule="tumblr_mockup" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.64999999999999991" contentMode="scaleToFill" id="ebX-OV-plM">
+                    <view key="view" alpha="0.10000000000000001" contentMode="scaleToFill" id="ebX-OV-plM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -342,7 +362,6 @@
         <image name="home_selected_icon" width="35" height="35"/>
         <image name="home_spinner" width="146" height="146"/>
         <image name="link_icon" width="75" height="95"/>
-        <image name="loading-1" width="61" height="19"/>
         <image name="login_form" width="300" height="132"/>
         <image name="nevermind" width="320" height="53"/>
         <image name="photo_icon" width="75" height="95"/>

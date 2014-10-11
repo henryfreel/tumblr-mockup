@@ -123,32 +123,99 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
         // The value here should be the duration of the animations scheduled in the animationTransition method
-        return 0.4
+        return 0.1
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        println("animating transition")
         var containerView = transitionContext.containerView()
         var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         
+        
         if (isPresenting) {
+            println("going to")
+            
+            let vc = toViewController as ComposeViewController
+            
+            vc.textButton.transform = CGAffineTransformMakeTranslation(0, 400)
+            vc.photoButton.transform = CGAffineTransformMakeTranslation(0, 400)
+            vc.quoteButton.transform = CGAffineTransformMakeTranslation(0, 400)
+            vc.linkButton.transform = CGAffineTransformMakeTranslation(0, 400)
+            vc.chatButton.transform = CGAffineTransformMakeTranslation(0, 400)
+            vc.videoButton.transform = CGAffineTransformMakeTranslation(0, 400)
+
+
             containerView.addSubview(toViewController.view)
-            toViewController.view.alpha = 0
             
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                
                 toViewController.view.alpha = 1
+                toViewController.view.backgroundColor = UIColor(red: 0.19, green: 0.26, blue: 0.35, alpha: 0.8)
+                
+                
                 }) { (finished: Bool) -> Void in
+                    
+                    UIView.animateWithDuration(0.5, delay: 0.05, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                        vc.textButton.transform = CGAffineTransformMakeTranslation(0, 0)
+                    }, completion: nil)
+                    UIView.animateWithDuration(0.5, delay: 0.10, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                        vc.photoButton.transform = CGAffineTransformMakeTranslation(0, 0)
+                        }, completion: nil)
+                    UIView.animateWithDuration(0.5, delay: 0.15, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                        vc.quoteButton.transform = CGAffineTransformMakeTranslation(0, 0)
+                        }, completion: nil)
+                    UIView.animateWithDuration(0.5, delay: 0.20, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                        vc.linkButton.transform = CGAffineTransformMakeTranslation(0, 0)
+                        }, completion: nil)
+                    UIView.animateWithDuration(0.5, delay: 0.25, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                        vc.chatButton.transform = CGAffineTransformMakeTranslation(0, 0)
+                        }, completion: nil)
+                    UIView.animateWithDuration(0.5, delay: 0.30, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                        vc.videoButton.transform = CGAffineTransformMakeTranslation(0, 0)
+                        }, completion: nil)
+
+                    
                     transitionContext.completeTransition(true)
+                    
             }
-        } else {
             
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
+        } else {
+            println("coming back")
+            
+            let vc = fromViewController as ComposeViewController
+            
+            UIView.animateWithDuration(0.5, delay: 0.05, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                vc.textButton.transform = CGAffineTransformMakeTranslation(0, -400)
+                }, completion: nil)
+            UIView.animateWithDuration(0.5, delay: 0.10, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                vc.photoButton.transform = CGAffineTransformMakeTranslation(0, -400)
+                }, completion: nil)
+            UIView.animateWithDuration(0.5, delay: 0.15, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                vc.quoteButton.transform = CGAffineTransformMakeTranslation(0, -400)
+                }, completion: nil)
+            UIView.animateWithDuration(0.5, delay: 0.20, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                vc.linkButton.transform = CGAffineTransformMakeTranslation(0, -400)
+                }, completion: nil)
+            UIView.animateWithDuration(0.5, delay: 0.25, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                vc.chatButton.transform = CGAffineTransformMakeTranslation(0, -400)
+                }, completion: nil)
+            UIView.animateWithDuration(0.5, delay: 0.30, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                vc.videoButton.transform = CGAffineTransformMakeTranslation(0, -400)
+                }, completion: nil)
+
+            
+            UIView.animateWithDuration(0.2, delay: 0.5, options: nil, animations: { () -> Void in
                 fromViewController.view.alpha = 0
-                }) { (finished: Bool) -> Void in
+
+                }, completion: { (finished: Bool) -> Void in
+                    fromViewController.view.alpha = 0
                     transitionContext.completeTransition(true)
                     fromViewController.view.removeFromSuperview()
-            }
+
+            })
+            
+            
+            
         }
     }
 

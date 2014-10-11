@@ -11,9 +11,13 @@ import UIKit
 class HomeViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
     var isPresenting: Bool = true
+    var loginViewController : UIViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController
 
         // Do any additional setup after loading the view.
     }
@@ -47,23 +51,43 @@ class HomeViewController: UIViewController, UIViewControllerTransitioningDelegat
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         
         if (isPresenting) {
+            
+            let vc = toViewController as LoginViewController
+            
+            self.addChildViewController(loginViewController)
             containerView.addSubview(toViewController.view)
-            toViewController.view.alpha = 0
+            loginViewController.didMoveToParentViewController(self)
+            toViewController.view.alpha = 1
+            toViewController.view.backgroundColor = UIColor(red: 0.19, green: 0.26, blue: 0.35, alpha: 0)
+            vc.loginForm.transform = CGAffineTransformMakeTranslation(0, 400)
             
             UIView.animateWithDuration(0.4, animations: { () -> Void in
-                toViewController.view.alpha = 1
+                
+                vc.loginForm.transform = CGAffineTransformMakeTranslation(0, 0)
+                
                 }) { (finished: Bool) -> Void in
+                    
                     transitionContext.completeTransition(true)
+                    
             }
+            
         } else {
             
+            let vc = fromViewController as LoginViewController
+            
             UIView.animateWithDuration(0.4, animations: { () -> Void in
+                
                 fromViewController.view.alpha = 0
+                
                 }) { (finished: Bool) -> Void in
+                    
                     transitionContext.completeTransition(true)
                     fromViewController.view.removeFromSuperview()
+                    
             }
+            
         }
+        
     }
 
 

@@ -21,6 +21,10 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        view.alpha = 0.1
+        
+        
         // Do any additional setup after loading the view.
     }
 
