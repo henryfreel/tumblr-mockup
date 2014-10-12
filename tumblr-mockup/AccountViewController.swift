@@ -9,6 +9,9 @@
 import UIKit
 
 class AccountViewController: UIViewController {
+    @IBOutlet weak var signedInImageView: UIImageView!
+    
+    var defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,20 +19,18 @@ class AccountViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+    override func viewWillAppear(animated: Bool) {
+        var initalVal = self.defaults.integerForKey("logged-in")
+        println("this is the thing \(initalVal)")
+        
+        if initalVal == 1 {
+            
+            println("fuck yea")
+            signedInImageView.hidden = false
+            
+        }
+        
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

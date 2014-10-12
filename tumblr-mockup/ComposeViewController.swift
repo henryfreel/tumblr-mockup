@@ -16,6 +16,7 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var linkButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
+    @IBOutlet weak var nevermindButton: UIButton!
     
     
     override func viewDidLoad() {

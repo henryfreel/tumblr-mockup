@@ -74,14 +74,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.19607843137254902" green="0.25882352941176467" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="explore_popup" id="vIx-KL-PPU">
-                                <rect key="frame" x="0.0" y="457" width="185" height="77"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" id="7GI-aY-yMC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="explore_popup" id="vIx-KL-PPU">
+                                <rect key="frame" x="0.0" y="460" width="185" height="77"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                     </view>
                     <connections>
@@ -192,9 +192,16 @@
                                     <segue destination="ZH7-pJ-3bq" kind="modal" modalTransitionStyle="coverVertical" id="BC4-FS-Iye"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="signedInHome" id="sa9-ft-AJ7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="signedInHomeImageView" destination="sa9-ft-AJ7" id="WAT-GS-XNr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="poZ-RX-aa5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -208,20 +215,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="search_feed" id="0qU-Ry-Bx2">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="loading-1" id="cSN-xf-5VM">
+                                <rect key="frame" x="130" y="252" width="61" height="19"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="NpW-05-jNQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="search_feed" id="0qU-Ry-Bx2">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.24313727021217346" green="0.34117648005485535" blue="0.48627454042434692" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <connections>
-                        <outlet property="backgroundImage" destination="0qU-Ry-Bx2" id="GS8-Zx-Wsr"/>
+                        <outlet property="backgroundImage" destination="0qU-Ry-Bx2" id="kDm-DL-aY5"/>
+                        <outlet property="loadingImageView" destination="cSN-xf-5VM" id="HSg-uO-4qf"/>
+                        <outlet property="scrollview" destination="NpW-05-jNQ" id="ceC-GK-JTD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="93P-PN-WxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-206" y="1033"/>
+            <point key="canvasLocation" x="-209" y="1033"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="Y2g-nM-twN">
@@ -287,6 +306,7 @@
                     <connections>
                         <outlet property="chatButton" destination="aVp-WC-Ozx" id="eTE-7u-mFC"/>
                         <outlet property="linkButton" destination="QXL-3T-thf" id="gbZ-19-h4l"/>
+                        <outlet property="nevermindButton" destination="ara-6G-EtQ" id="gzk-hA-FIC"/>
                         <outlet property="photoButton" destination="Uwc-Vk-jZR" id="39T-Er-Lsn"/>
                         <outlet property="quoteButton" destination="EzH-2o-z2R" id="fqw-tk-L00"/>
                         <outlet property="textButton" destination="Fyl-pc-TNW" id="2gO-tS-bjF"/>
@@ -340,9 +360,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="signedin" id="A4R-nq-8dW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="signedInImageView" destination="A4R-nq-8dW" id="s7w-Pc-6Bm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WfY-UL-QS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -362,6 +389,7 @@
         <image name="home_selected_icon" width="35" height="35"/>
         <image name="home_spinner" width="146" height="146"/>
         <image name="link_icon" width="75" height="95"/>
+        <image name="loading-1" width="61" height="19"/>
         <image name="login_form" width="300" height="132"/>
         <image name="nevermind" width="320" height="53"/>
         <image name="photo_icon" width="75" height="95"/>
@@ -369,6 +397,8 @@
         <image name="search_feed" width="320" height="524"/>
         <image name="search_icon" width="35" height="35"/>
         <image name="search_selected_icon" width="35" height="35"/>
+        <image name="signedInHome" width="320" height="524"/>
+        <image name="signedin" width="320" height="524"/>
         <image name="text_icon" width="75" height="95"/>
         <image name="trending_feed" width="320" height="1217"/>
         <image name="trending_icon" width="35" height="35"/>

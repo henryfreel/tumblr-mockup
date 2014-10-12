@@ -44,6 +44,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         
         UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: { () -> Void in
             self.discoverBubbleImage.transform = CGAffineTransformMakeTranslation(0, -5)
+            println("movin'")
         }, completion: nil)
 
         
@@ -75,23 +76,31 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             case homeButton:
             
                 println("Home Pressed")
+                self.addChildViewController(homeViewController)
                 containerView.addSubview(homeViewController.view)
+                homeViewController.didMoveToParentViewController(self)
             
             case searchButton:
             
                 println("Search Pressed")
+                self.addChildViewController(searchViewController)
                 containerView.addSubview(searchViewController.view)
+                searchViewController.didMoveToParentViewController(self)
                 discoverBubbleImage.hidden = true
             
             case accountButton:
             
                 println("Account Pressed")
+                self.addChildViewController(accountViewController)
                 containerView.addSubview(accountViewController.view)
+                accountViewController.didMoveToParentViewController(self)
             
             case trendingButton:
             
                 println("Trending Pressed")
+                self.addChildViewController(trendingViewController)
                 containerView.addSubview(trendingViewController.view)
+                trendingViewController.didMoveToParentViewController(self)
             
             default:
             
@@ -99,8 +108,8 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             
             }
         
+        
     }
-    
     
     
     
@@ -202,6 +211,10 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             UIView.animateWithDuration(0.5, delay: 0.30, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
                 vc.videoButton.transform = CGAffineTransformMakeTranslation(0, -400)
                 }, completion: nil)
+            
+            UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: nil, animations: { () -> Void in
+                vc.nevermindButton.transform = CGAffineTransformMakeTranslation(0, 100)
+            }, completion: nil)
 
             
             UIView.animateWithDuration(0.2, delay: 0.5, options: nil, animations: { () -> Void in

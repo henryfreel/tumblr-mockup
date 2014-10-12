@@ -11,37 +11,31 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var loadingImageView: UIImageView!
+    @IBOutlet weak var scrollview: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundImage.hidden = true
+        scrollview.hidden = true
         
-        
-        var loaderImage: [UIImage] = [
-            UIImage(named: "loading-1.png"),
-            UIImage(named: "loading-2.png"),
-            UIImage(named: "loading-3.png")
-        ]
-        
-        var imageView = UIImageView(frame: CGRectMake(130, 274, loaderImage[0].size.width, loaderImage[0].size.height))
-        view.addSubview(imageView)
-       
-        imageView.image = loaderImage[0]
-        
-        delay(2, closure: { () -> () in
-            self.backgroundImage.hidden = false
-            imageView.hidden = true
-        })
-        
+        scrollview.contentSize = backgroundImage.image!.size
+    
+        var images = UIImage.animatedImageNamed("loading-", duration: 0.7)
+        loadingImageView.image = images
+
         
         // Do any additional setup after loading the view.
     }
-
-
-
     
-    
+    override func viewDidAppear(animated: Bool) {
+        
+        delay(2, closure: { () -> () in
+            self.scrollview.hidden = false
+        })
+    }
+
+
     
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
