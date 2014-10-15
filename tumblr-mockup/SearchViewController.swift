@@ -19,7 +19,8 @@ class SearchViewController: UIViewController {
         
         scrollview.hidden = true
         
-        scrollview.contentSize = backgroundImage.image!.size
+        //scrollview.contentSize = backgroundImage.image!.size
+        scrollview.contentSize = CGSize(width: 320, height: 525)
     
         var images = UIImage.animatedImageNamed("loading-", duration: 0.7)
         loadingImageView.image = images

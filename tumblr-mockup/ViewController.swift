@@ -79,7 +79,10 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
                 self.addChildViewController(homeViewController)
                 containerView.addSubview(homeViewController.view)
                 homeViewController.didMoveToParentViewController(self)
-            
+                searchViewController.removeFromParentViewController()
+                searchViewController.view.removeFromSuperview()
+                searchButton.selected = false
+
             case searchButton:
             
                 println("Search Pressed")
@@ -94,6 +97,9 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
                 self.addChildViewController(accountViewController)
                 containerView.addSubview(accountViewController.view)
                 accountViewController.didMoveToParentViewController(self)
+                searchViewController.view.removeFromSuperview()
+                searchViewController.view.removeFromSuperview()
+
             
             case trendingButton:
             
@@ -101,6 +107,8 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
                 self.addChildViewController(trendingViewController)
                 containerView.addSubview(trendingViewController.view)
                 trendingViewController.didMoveToParentViewController(self)
+                searchViewController.view.removeFromSuperview()
+
             
             default:
             
@@ -111,7 +119,13 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        searchViewController.removeFromParentViewController()
+    }
     
+    override func viewDidAppear(animated: Bool) {
+        searchViewController.removeFromParentViewController()
+    }
     
     func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
         isPresenting = true
